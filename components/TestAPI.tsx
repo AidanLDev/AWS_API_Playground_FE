@@ -22,12 +22,7 @@ export default function TestAPI() {
 
   return (
     <form action={action}>
-      <Button
-        label="Test API"
-        onClick={() => console.log("testing")}
-        disabled={isPending}
-        type="submit"
-      />
+      <Button label="Test API" disabled={isPending} type="submit" />
       {message && (
         <p className="py-4">{`${isPending ? "Loading..." : `Message: ${message}`}`}</p>
       )}
