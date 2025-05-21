@@ -16,13 +16,12 @@ export async function getRoot(_formData: FormData) {
 
 export const upsertUser = async (formData: FormData) => {
   console.log("me data: ", formData);
+  const plainObject = Object.fromEntries(formData.entries());
   const res = await fetch(`${process.env.API_URL}users`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: formData,
+    body: JSON.stringify(plainObject),
   });
-
-  console.log("res: ", res);
 
   if (!res.ok) {
     console.error("res: ", res);
