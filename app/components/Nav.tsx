@@ -11,6 +11,10 @@ const navItems: INavItem[] = [
     label: "Admin",
     link: "/admin",
   },
+  {
+    label: "Users",
+    link: "/users",
+  },
 ];
 
 export default function Nav() {

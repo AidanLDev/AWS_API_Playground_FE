@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Button from "./inputs/Button";
-import { getRoot } from "@/actions";
+import { getRoot } from "@/generalActions";
 
 export default function TestAPI() {
   const [message, setMessage] = useState("");
@@ -24,7 +24,9 @@ export default function TestAPI() {
     <form action={action}>
       <Button label="Test API" disabled={isPending} type="submit" />
       {message && (
-        <p className="py-4">{`${isPending ? "Loading..." : `Message: ${message}`}`}</p>
+        <p className="py-4">{`${
+          isPending ? "Loading..." : `Message: ${message}`
+        }`}</p>
       )}
     </form>
   );

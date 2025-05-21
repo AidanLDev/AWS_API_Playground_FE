@@ -1,4 +1,4 @@
-import { upsertUser } from "@/actions";
+import { upsertUser } from "@/userActions";
 import Button from "@/components/inputs/Button";
 
 export default function Form() {
