@@ -1,4 +1,4 @@
-import { upsertUser } from "@/userActions";
+import { upsertUser } from "@/app/userActions";
 
 export default async function Form() {
   return (

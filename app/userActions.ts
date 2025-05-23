@@ -1,3 +1,5 @@
+"use server";
+
 export const getUsers = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/users`, {

@@ -1,7 +1,7 @@
-import { NotificationType } from "@/types/types";
+"use server";
 
 export async function postNotification(formData: FormData) {
-  const type = formData.get("type") as NotificationType;
+  const type = formData.get("type") as "sms" | "email" | "push";
   const userId = formData.get("userId") as string;
   const message = formData.get("message") as string;
   const email = formData.get("email") as string | undefined;
@@ -34,8 +34,9 @@ export async function postNotification(formData: FormData) {
       headers: { "Content-Type": "application/json" },
       body: responseBody,
     });
-    console.log("Response from notification service:", res.json());
-    return res.json();
+    const jsonResponse = await res.json();
+    console.log("Response from notification service: ", jsonResponse);
+    return jsonResponse;
   } catch (err) {
     console.error("Error posting notification:", err);
     throw new Error("Failed to post notification");

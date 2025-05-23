@@ -4,7 +4,3 @@ export interface IButtonProps {
   readonly type?: "submit" | "button" | "reset";
   readonly disabled?: boolean;
 }
-
-// Use  directly instead of declaring an empty interface
-// Example usage:
-// const userCardProps: Omit<IUser, 'id'> = { ... };

@@ -1,11 +1,15 @@
-import React from "react";
-import { getUsers } from "@/userActions";
-import { IUser } from "@/types/interfaces";
+import { getUsers } from "@/app/userActions";
 import UsersCard from "./components/UsersCard";
+
+interface IUser {
+  readonly email?: string;
+  readonly number?: string;
+  readonly createdAt: string;
+  readonly id: string;
+}
 
 export default async function Users() {
   const users = await getUsers();
-  console.log("users: ", users);
   return (
     <div>
       <h1>Users</h1>
@@ -18,6 +22,7 @@ export default async function Users() {
             email={email}
             createdAt={createdAt}
             number={number}
+            id={id}
           />
         ))
       )}
