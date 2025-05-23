@@ -1,7 +1,6 @@
 import { upsertUser } from "@/userActions";
-import Button from "@/components/inputs/Button";
 
-export default function Form() {
+export default async function Form() {
   return (
     <form action={upsertUser} className="flex flex-col gap-2">
       <div className="flex gap-2">
@@ -12,7 +11,9 @@ export default function Form() {
         <label htmlFor="number-input">phone: </label>
         <input id="number-input" name="number" type="number" />
       </div>
-      <Button type="submit" label="Add user!" />
+      <button type="submit" className="cursor-pointer">
+        Add User!
+      </button>
     </form>
   );
 }
