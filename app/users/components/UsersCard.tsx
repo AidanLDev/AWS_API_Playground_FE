@@ -35,9 +35,25 @@ export default function UsersCard({
         )}
       </form>
       {number && (
-        <div className="bg-slate-100 rounded-md px-3 py-1 text-indigo-500 font-medium text-sm my-2">
-          #{number}
-        </div>
+        <form
+          action={postNotification}
+          className="cursor-pointer bg-slate-100 rounded-md px-3 py-1 text-indigo-500 font-medium text-sm my-2"
+        >
+          <input name="number" type="hidden" value={number} />
+          <input name="userId" type="hidden" value={id} />
+          <input name="type" type="hidden" value="sms" />
+          <input
+            name="message"
+            type="hidden"
+            value="Testing SMS notifications"
+          />
+          <button
+            type="submit"
+            className="text-slate-900 text-base mb-1 cursor-pointer"
+          >
+            #{number}
+          </button>
+        </form>
       )}
       <div className="text-slate-100">{createdAt.split("T")[0]}</div>
     </div>
