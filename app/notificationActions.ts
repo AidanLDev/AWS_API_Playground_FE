@@ -1,7 +1,7 @@
 "use server";
 
 export async function postNotification(formData: FormData) {
-  const type = formData.get("type") as "sms" | "email" | "push";
+  const type = formData.get("type") as "sms" | "email"; 
   const userId = formData.get("userId") as string;
   const message = formData.get("message") as string;
   const email = formData.get("email") as string | undefined;
@@ -15,7 +15,7 @@ export async function postNotification(formData: FormData) {
       type,
       message,
     });
-  } else if (type === "sms" || type === "push") {
+  } else if (type === "sms") {
     responseBody = JSON.stringify({
       userId,
       number,
@@ -25,8 +25,6 @@ export async function postNotification(formData: FormData) {
   } else {
     throw new Error("Invalid notification type");
   }
-
-  console.log("Posting notification:", responseBody);
 
   try {
     const res = await fetch(`${process.env.API_URL}/notifications`, {
